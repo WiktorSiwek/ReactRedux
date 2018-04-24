@@ -29,7 +29,7 @@ class TimersDashboard extends React.Component {
     createTimer = (timer) => {
         const t = helpers.newTimer(timer);
         this.setState({
-            timerr: this.state.timers.concat(t),
+            timers: this.state.timers.concat(t),
         });
     };
 
@@ -53,7 +53,7 @@ class TimersDashboard extends React.Component {
     };
 
     handleTrashClick = (timerid) => {
-        this.deleteTimer(trashid);
+        this.deleteTimer(timerid);
     }
 
     deleteTimer = (timerid) => {
