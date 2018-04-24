@@ -52,13 +52,24 @@ class TimersDashboard extends React.Component {
         });
     };
 
+    handleTrashClick = (timerid) => {
+        this.deleteTimer(trashid);
+    }
+
+    deleteTimer = (timerid) => {
+        this.setState({
+            timers: this.state.timers.filter(t => t.id !== timerid),
+        });
+    };
+
     render() {
         return (
             <div className='ui three column centered grid'>
                 <div className='column'>
                     <EditableTimerList 
                         timers={this.state.timers}
-                        onFormSubmit={this.handleEditFormSubmit} />
+                        onFormSubmit={this.handleEditFormSubmit}
+                        onTrashClick={this.handleTrashClick} />
                     <ToggleableTimerForm
                         isOpen={true} 
                         onFormSubmit={this.handleCreateFormSubmit}/>
